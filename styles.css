@@ -6,6 +6,7 @@
     outline: solid red;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 
@@ -15,15 +16,21 @@
     outline: solid red;
     width: 300px;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .digits-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+   
+   justify-content: center;
     outline: solid red;
     width: 300px;
+}
+
+.operands-container {
+    display: flex;
+    outline: solid red;
+    
 }
 
 .num-0 {
@@ -35,8 +42,8 @@
 }
 
 button {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .screen {
@@ -48,9 +55,6 @@ button {
     align-items: center;
 }
 
-.top {
-    outline: solid red;
-}
 
 
 /* .main {
