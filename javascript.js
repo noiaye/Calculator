@@ -69,6 +69,9 @@ function operate(operator, num1, num2) {
    } else if (operator === "/") {
         let resultOfDivide = divide(Number(num1), Number(num2)) 
         return resultOfDivide
+   } else if (operator === "*") {
+        let resultofMultiply = multiply(Number(num1), Number(num2))
+        return resultofMultiply
    }
 }
 
