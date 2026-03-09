@@ -63,6 +63,9 @@ function operate(operator, num1, num2) {
    if (operator === "+") {
         let resultofAdd = add(Number(num1), Number(num2))
         return resultofAdd
+   } else if (operator === "-") {
+        let resultofSubtract = subtract(Number(num1), Number(num2))
+        return resultofSubtract
    }
    
 }
