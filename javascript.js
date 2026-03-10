@@ -7,6 +7,7 @@ let inputTracker = []
 
 
 
+
 const calculatorScreen = document.querySelector(".screen")
 
 
@@ -78,22 +79,30 @@ function operate(operator, num1, num2) {
 const display = document.querySelector(".display")
 
 
-
 display.addEventListener("click", (object) => {
-    calculatorScreen.textContent = inputTracker
+      let textcontent =  object.target.textContent
+    if (object.target.textContent === "clear") {
+        textcontent = ""
+    }  
+ 
+   console.log(textcontent)
+
+   
     if (object.target.textContent === "clear") {
         inputTracker = []
+        calculatorScreen.textContent = ""
+
     } else {
          inputTracker.push(object.target.textContent)
        
     }
-    if (inputTracker.length === 3) {
+    if (inputTracker.length === 4 && inputTracker[3] === "=") {
         
         // console.log("got here")
      
             
             let result = operate(inputTracker[1], inputTracker[0], inputTracker[2])
-            
+            calculatorScreen.textContent = result
             // console.log(result)
             equalsbutton.addEventListener("click", () => {
             // calculatorScreen.textContent = result
@@ -103,6 +112,9 @@ display.addEventListener("click", (object) => {
             inputTracker[0] = result
             console.log(inputTracker)
     
+    } else {
+         calculatorScreen.textContent += ` ${textcontent}`
+
     }
    
 })
