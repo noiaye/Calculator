@@ -21,7 +21,7 @@
 
 .digits-container {
     display: flex;
-   
+   background-color: rgb(53, 53, 53);
    justify-content: center;
     outline: solid red;
     width: 300px;
@@ -39,7 +39,10 @@
 
 .threes {
     outline: solid red;
+    background-color: rgb(53, 53, 53);
 }
+
+
 
 button {
     width: 50px;

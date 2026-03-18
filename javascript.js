@@ -1,48 +1,18 @@
 let operator = undefined
-let buttonthatwasClicked = ""
-// let numberOne = undefined
-// let numberTwo = undefined
+let indexTracker = 0
+const equalsbutton = document.querySelector(".equals")
+const display = document.querySelector(".display")
 let inputTracker = []
 
+let tracker2 = ""
+let clear = document.querySelector(".clear")
+let tracker = "";
 
 
-
-
+const threes = document.querySelector(".threes")
 const calculatorScreen = document.querySelector(".screen")
-
-
 const plusOperator = document.querySelector(".add") 
-plusOperator.addEventListener("click", () => {
-    operator = "+"
-})
-
 const minusOperator = document.querySelector(".subtract") 
-minusOperator.addEventListener("click", () => {
-    operator = "-"
-})
-
-const digits = document.querySelector(".threes")
-
-// digits.addEventListener("click", () => {
-    
-// })
-
-
-
-
-
-// const buttons = document.querySelectorAll("button")
-// buttons.forEach(button => {
-    
-//     button.addEventListener("click", () => {
-//         buttonthatwasClicked = button.textContent
-//         calculatorScreen.textContent = buttonthatwasClicked
-//         console.log(buttonthatwasClicked)
-//     })
-// });
-
-const equalsbutton = document.querySelector(".equals")
-
 
 function add(a, b) {
     return a + b;
@@ -76,78 +46,55 @@ function operate(operator, num1, num2) {
    }
 }
 
-const display = document.querySelector(".display")
+display.addEventListener("click", (number) => {
+    // For each input pressed add into an array
 
-
-display.addEventListener("click", (object) => {
-      let textcontent =  object.target.textContent
-    if (object.target.textContent === "clear") {
-        textcontent = ""
-    }  
- 
-   console.log(textcontent)
-
-   
-    if (object.target.textContent === "clear") {
+    if (number.target.textContent === "clear") {
+        tracker = ""
         inputTracker = []
-        calculatorScreen.textContent = ""
-
+        tracker2 = ""
     } else {
-         inputTracker.push(object.target.textContent)
-       
-    }
-    if (inputTracker.length === 4 && inputTracker[3] === "=") {
-        
-        // console.log("got here")
-     
+            tracker += // Any number (how do we get this?)
+            plusOperator.addEventListener("click", () => {
+            inputTracker[0] = tracker
+            inputTracker[1] = "+"
             
-            let result = operate(inputTracker[1], inputTracker[0], inputTracker[2])
-            calculatorScreen.textContent = result
-            // console.log(result)
-            equalsbutton.addEventListener("click", () => {
-            // calculatorScreen.textContent = result
-                // console.log(String(inputTracker[1]))
-            })
-            inputTracker = []
-            inputTracker[0] = result
-            console.log(inputTracker)
-    
-    } else {
-         calculatorScreen.textContent += ` ${textcontent}`
+        })
 
-    }
+        if (inputTracker.length === 2) {
+            tracker2 += // Any number, how do we get this?
+        }
+    
+        
+        
+        equalsbutton.addEventListener("click", () => {
+            inputTracker[2] = tracker2
+            console.log(inputTracker)
+        })
+
    
+    }
+  
+    
+   
+        
+    
+    
+    
+       
 })
 
 
 
 
-// equalsbutton.addEventListener("click", () => {
-//     if (numberOne != undefined &&  numberTwo != undefined && operator != undefined) {
-//         if (operator === "+") {
-//             numberOne = add(numberOne, numberTwo)
-//             calculatorScreen.textContent = numberOne
-//         }
-//     }
-// })
 
 
 
-// When equals button is pressed
-// If numberOne is not "" and numberTwo is not "" then
-// If operator is any of the operators listed then
-// if operator is + we call plus or if ...
-// Make different variables for each result of operation
-// make the approtpriate result to the appropriate variables
-// If any of these variables have a value , then 
-// output the value tot he screen
-// And upon the user pressing plus again it
+
+
+ 
 
 
 
-// We can check the length of inputs
-// So essentially we have an input array or string which tracks what has been pressed
-// Now if the length of the array becomes 3 
-// Then we check that the first element was a number, the second element an operator and the third element a number
-// Then we perform the operations
+
 
