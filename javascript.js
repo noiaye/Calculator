@@ -8,6 +8,8 @@ let tracker2 = ""
 let clear = document.querySelector(".clear")
 let tracker = "";
 
+let operandsContainer = document.querySelector(".operands-container")
+
 
 const threes = document.querySelector(".threes")
 const calculatorScreen = document.querySelector(".screen")
@@ -47,33 +49,59 @@ function operate(operator, num1, num2) {
 }
 
 display.addEventListener("click", (number) => {
-    // For each input pressed add into an array
+    
+    // console.log(operandsContainer.contains(number.target))
+
+    // 
+    
 
     if (number.target.textContent === "clear") {
         tracker = ""
         inputTracker = []
         tracker2 = ""
-    } else {
-            tracker += // Any number (how do we get this?)
-            plusOperator.addEventListener("click", () => {
-            inputTracker[0] = tracker
-            inputTracker[1] = "+"
-            
-        })
 
-        if (inputTracker.length === 2) {
-            tracker2 += // Any number, how do we get this?
-        }
+        
+    } 
+    if (inputTracker.length === 0 || inputTracker.length === 2) { // if we are on the 0 index or on the 2 index we cant have a operator
+        if (operandsContainer.contains(number.target)) {
+                tracker = ""
+        } 
+        tracker += number.target.textContent
+   
     
-        
-        
-        equalsbutton.addEventListener("click", () => {
-            inputTracker[2] = tracker2
-            console.log(inputTracker)
+    } else if (inputTracker.length === 1) {
+         plusOperator.addEventListener("click", () => {
+                    inputTracker[0] = tracker
+                    inputTracker[1] = "+"
         })
+    }
 
    
+    console.log(tracker)
+
+    if (inputTracker.length === 3) {
+          equalsbutton.addEventListener("click", () => {
+                   console.log(inputTracker)
+        })
     }
+            
+    if (tracker === "clear" || tracker2 === "clear") {
+        tracker = ""
+        tracker2 = ""
+    }
+           
+                
+               
+              
+            
+            
+
+        
+        
+       
+
+   
+    
   
     
    
