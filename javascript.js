@@ -3,6 +3,7 @@ let indexTracker = 0
 const equalsbutton = document.querySelector(".equals")
 const display = document.querySelector(".display")
 let inputTracker = []
+let operaterEnabled = false
 
 let tracker2 = ""
 let clear = document.querySelector(".clear")
@@ -48,72 +49,51 @@ function operate(operator, num1, num2) {
    }
 }
 
+
+
 display.addEventListener("click", (number) => {
-    
-    // console.log(operandsContainer.contains(number.target))
-
-    // 
-    
-
-    if (number.target.textContent === "clear") {
-        tracker = ""
-        inputTracker = []
-        tracker2 = ""
-
-        
-    } 
-    if (inputTracker.length === 0 || inputTracker.length === 2) { // if we are on the 0 index or on the 2 index we cant have a operator
-        if (operandsContainer.contains(number.target)) {
-                tracker = ""
-        } 
+    if (!operandsContainer.contains(number.target)) {
         tracker += number.target.textContent
-   
+        calculatorScreen.textContent = tracker
+    }
+
+    if (operandsContainer.contains(number.target)) {
+        console.log(operaterEnabled)
+        operaterEnabled = true
+        operator = number.target.textContent
+        
+        calculatorScreen.textContent += operator // fix this later
+
+    }
     
-    } else if (inputTracker.length === 1) {
-         plusOperator.addEventListener("click", () => {
-                    inputTracker[0] = tracker
-                    inputTracker[1] = "+"
-        })
-    }
+})
 
-   
-    console.log(tracker)
+if (operaterEnabled === true) {
+    console.log("reaced here")
+    operaterEnabled = false
+    
+}
 
-    if (inputTracker.length === 3) {
-          equalsbutton.addEventListener("click", () => {
-                   console.log(inputTracker)
-        })
+threes.addEventListener("click", (numb) => {
+    if (operaterEnabled === true) {
+        console.log("reached here")
+        tracker2 += numb.target.textContent
     }
-            
-    if (tracker === "clear" || tracker2 === "clear") {
-        tracker = ""
-        tracker2 = ""
-    }
-           
-                
-               
-              
-            
-            
-
-        
-        
        
+})
 
-   
-    
-  
-    
-   
-        
-    
-    
-    
-       
+equalsbutton.addEventListener("click", () => {
+    operaterEnabled = false
+    inputTracker[0] = tracker
+    inputTracker[1] = operator
+    inputTracker[2] = tracker2
+    console.log(inputTracker)
 })
 
 
 
+
+       
 
 
 
