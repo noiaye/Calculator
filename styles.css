@@ -3,7 +3,7 @@
 } */
 
 .top {
-    outline: solid red;
+   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,32 +13,33 @@
 
 .display {
     display: flex;
-    outline: solid red;
+   
     width: 300px;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(53, 53, 53);
 }
 
 .digits-container {
     display: flex;
    background-color: rgb(53, 53, 53);
    justify-content: center;
-    outline: solid red;
+    /* outline: solid black; */
     width: 300px;
 }
 
 .operands-container {
     display: flex;
-    outline: solid red;
+    /* outline: solid  black; */
     
 }
 
-.num-0 {
-    outline: solid red;
-}
+/* .num-0 {
+    
+} */
 
 .threes {
-    outline: solid red;
+    outline: solid black;
     background-color: rgb(53, 53, 53);
 }
 
@@ -56,6 +57,10 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    outline: solid black;
+    font-family: "Rowdies", sans-serif;
+    font-weight: 300;
+    
 }
 
 

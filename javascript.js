@@ -9,9 +9,17 @@ let finaltracker2 = ""
 
 let tracker2 = ""
 let clear = document.querySelector(".clear")
-let tracker = "";
+let tracker = ""
 
 let operandsContainer = document.querySelector(".operands-container")
+
+function clearr() {
+    tracker = ""
+    tracker2 = ""
+    inputTracker = []
+    calculatorScreen.textContent = ""
+    operator = ""
+}
 
 
 const threes = document.querySelector(".threes")
@@ -53,43 +61,77 @@ function operate(operator, num1, num2) {
 
 
 
+clear.addEventListener("click", () => {
+    console.log("cleared")
+    clearr()
+})
+
+
+
+
 display.addEventListener("click", (number) => {
+    console.log(number)
     
     if (!operandsContainer.contains(number.target)) {
+        console.log("yes")
         tracker += number.target.textContent
-        calculatorScreen.textContent = tracker
+        calculatorScreen.textContent = `${tracker}`
     }
 
-    if (operandsContainer.contains(number.target)) {
-        console.log(operaterEnabled)
+    if (operandsContainer.contains(number.target) && number.target.textContent != "clear" && number.target.textContent != "=") {
+        console.log("yes1")
+        inputTracker[0] = tracker
+        finaltracker2 = tracker
+        tracker = ""
         operaterEnabled = true
-        finalTracker = tracker
         operator = number.target.textContent
-        
-        calculatorScreen.textContent += operator // fix this later
-
+        calculatorScreen.textContent = `${finalTracker} ${operator}`
     }
-    
+
+    if (operaterEnabled === true && inputTracker.length === 1 && !operandsContainer.contains(number.target)) {
+        tracker2 += number.target.textContent
+    }
+
+    if (number.target.textContent === "=" && operaterEnabled === true && inputTracker.length === 1) {
+        inputTracker[1] = operator
+        inputTracker[2] = tracker2
+        finaltracker2 = tracker2
+        tracker2 = ""
+        operaterEnabled = false
+        calculatorScreen.textContent = `${finalTracker} ${operator} ${finaltracker2}`
+        operator = ""
+    } 
+    // else {
+    //     clearr()
+    //     console.log("failed")
+    // }
+
+
 })
 
 
-threes.addEventListener("click", (numb) => {
-    if (operaterEnabled === true) {
-        console.log("reached here")
-        tracker2 += numb.target.textContent
-    }
+
+    // threes.addEventListener("click", (numb) => {
+    //     if (operaterEnabled === true) {
+    //         console.log("reached here")
+    //         tracker2 += numb.target.textContent
+    //     }
        
-})
+    // })
 
-equalsbutton.addEventListener("click", () => {
-    operaterEnabled = false
-    inputTracker[0] = finalTracker
-    inputTracker[1] = operator
-    inputTracker[2] = tracker2
-    console.log(inputTracker)
-})
+// problem is that when i press clear, for some reason it is picking up the threes event listener instead of the display
 
 
+// equalsbutton.addEventListener("click", () => {
+//     operaterEnabled = false
+//     inputTracker[0] = finalTracker
+//     inputTracker[1] = operator
+//     inputTracker[2] = tracker2
+//     console.log(inputTracker)
+// })
+
+
+// && !number.target.textContent === "clear" && !number.target.textContent === "="
 
 
        
