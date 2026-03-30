@@ -14,6 +14,7 @@ let firsted = false
 let canTracker1 = true
 let canTracker2 = false
 let operatorOnSwitch = ""
+let canPperator = false
 
 let tracker2 = ""
 let clear = document.querySelector(".clear")
@@ -95,7 +96,7 @@ display.addEventListener("click", (number) => {
         canTracker1 = false
     }
 
-    if (operandsContainer.contains(number.target) && number.target.textContent != "clear" && number.target.textContent != "=") {
+    if (operandsContainer.contains(number.target) && number.target.textContent != "clear" && number.target.textContent != "=" && inputTracker.length === 1) {
         console.log("yesoperater")
         // finaltracker = tracker
        
