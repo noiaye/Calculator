@@ -86,7 +86,7 @@ display.addEventListener("click", (number) => {
         clearr()
     }
     
-    if (!operandsContainer.contains(number.target) && canTracker1 === true) {
+    if (!operandsContainer.contains(number.target) && canTracker1 === true && equalsTracker === false) {
         equalsTracker = false
         console.log("yes")
         
@@ -147,6 +147,7 @@ display.addEventListener("click", (number) => {
     }
 
     if (equalsTracker === true && !operandsContainer.contains(number.target)) {
+        console.log("special")
         equalsTracker = false
         clearr()
         tracker += number.target.textContent
