@@ -131,8 +131,28 @@ display.addEventListener("click", (number) => {
             clearr()
             calculatorScreen.textContent = `ERROR TRIED TO DIVIDE WITH ZERO`
             
+        } else if (operaterWasDivision === true) {
+            canTracker2 = false
+            firsted = true
+            tracker2 = ""
+            operator = ""
+            inputTracker[0] = Number(inputTracker[0])
+          
+            inputTracker[2] = Number(inputTracker[2])
+           
+            let resultOfOperationRounded = operate(inputTracker[1], inputTracker[0], inputTracker[2])
+           
+            let rounded = Math.round(resultOfOperationRounded * 100) / 100
+            inputTracker = []
+            inputTracker[0] = rounded
+            tracker = String(resultOfOperationRounded)
+            canTracker1 = true
+            equalsTracker = true
+            calculatorScreen.textContent = `${rounded}`
+            
         } else {
-                 firsted = false
+                canTracker2 = false
+                firsted = true
                 tracker2 = ""
                 operator = ""
                 let resultOfOperation = operate(inputTracker[1], inputTracker[0], inputTracker[2])
@@ -180,7 +200,21 @@ display.addEventListener("click", (number) => {
 
 
 
-
+// else if (operaterWasDivision === true) {
+//             firsted = false
+//             tracker2 = ""
+//             operator = ""
+//             inputTracker[0] = Number(inputTracker[0])
+//             console.log(`Input 0: ${inputTracker[0]}`)
+//             inputTracker[2] = Number(inputTracker[2])
+//             let resultOfOperationRounded = operate(inputTracker[1], inputTracker[0], inputTracker[2])
+//             let rounded = Math.round(resultOfOperationRounded * 100) * 100
+//             inputTracker = []
+//             inputTracker[0] = rounded
+//             tracker = String(resultOfOperationRounded)
+//             canTracker1 = true
+//             equalsTracker = true
+//             calculatorScreen.textContent = `${rounded}`
  
 
 
