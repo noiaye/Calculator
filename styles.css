@@ -19,6 +19,9 @@
     flex-direction: column;
     align-items: center;
     background-color: rgb(53, 53, 53);
+    border-radius: 15px;
+    
+    
 }
 
 .digits-container {
@@ -27,6 +30,7 @@
    justify-content: center;
    /* outline: solid black; */
    width: 300px;
+   margin-bottom: 20px;
 }
 
 .operands-container {
@@ -40,16 +44,37 @@
 } */
 
 .threes {
-    outline: solid black;
-    background-color: rgb(53, 53, 53);
+    /* outline: solid black; */
+   
+    gap: 10px;
+    margin-top: 10px;
 }
 
+.three-1 {
+    gap: 10px;
+}
+
+button {
+    box-shadow: 3px 3px rgb(0, 0, 0);
+}
+
+.operands-container {
+    box-shadow: none;
+    display: flex;
+}
 
 
 button {
     width: 50px;
     height: 50px;
+    background-color: rgb(25, 25, 25);
+    color: rgb(255, 255, 255);
+    
+    
+
 }
+
+
 
 .screen {
     width: 230px;
@@ -60,7 +85,8 @@ button {
     align-items: center;
     outline: solid black;
     font-family: "Orbitron", sans-serif;
-    
+    background-color: rgb(112, 112, 91);
+    color: rgb(19, 19, 19);
 }
 
 
